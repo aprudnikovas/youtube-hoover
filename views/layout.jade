@@ -1,0 +1,30 @@
+!!! 5
+html
+    head
+        - if (locals.title)
+            title #{title}
+        - else
+            title My Blog
+        link(rel='stylesheet', href='/stylesheets/styles.css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans|Droid+Sans',rel='stylesheet',type='text/css')
+
+    body
+
+        header.navbar.navbar-fixed-top: nav.navbar-inner: .container
+            a.brand(href='/') youtube-hoover
+            ul.nav.pull-right
+                li: a(href="/") Home
+
+        section#mainSection.container
+
+            block content
+
+        footer#footer.center-text
+            span youtube-hoover 2013 |
+            a(href='https://github.com/aprudnikovas/youtube-hoover.git')  github
+
+        script(src="/dependencies/jquery/jquery.min.js")
+        script(src="/dependencies/bootstrap/js/bootstrap-dropdown.js")
+        script(src="/dependencies/underscore/underscore-min.js")
+        script(src="/dependencies/backbone/backbone-min.js")
+        script(src="/js/main.js")

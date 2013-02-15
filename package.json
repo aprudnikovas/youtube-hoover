@@ -1,0 +1,37 @@
+{
+  "name": "youtube-hoover",
+  "author": "Ivar Prudnikov <aprudnikovas@yahoo.com>",
+  "description": "Small app with integrated youtube",
+  "keywords": [
+    "youtube"
+  ],
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aprudnikovas/youtube-hoover.git"
+  },
+  "scripts": {
+    "prestart": "bower install",
+    "start": "node app",
+    "test": "make test"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongodb": ">=*",
+    "mongoose": "*",
+    "jade": "*",
+    "underscore": "*",
+    "less-middleware": "~0.1.9",
+    "bower": "~0.7.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "rewire": "~1.0.3"
+  },
+  "engines": {
+    "node": ">=0.8",
+    "npm": "1.1.x"
+  }
+}
