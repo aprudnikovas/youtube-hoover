@@ -23,7 +23,8 @@
     "jade": "*",
     "underscore": "*",
     "less-middleware": "~0.1.9",
-    "bower": "~0.7.0"
+    "bower": "~0.7.0",
+    "superagent": "~0.12.4"
   },
   "devDependencies": {
     "mocha": "*",

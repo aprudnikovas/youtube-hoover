@@ -32,6 +32,7 @@
             app.use(express.methodOverride());
             app.use(express.session({ secret: 'keyboard cat' }));
             app.use(app.router);
+
         });
 
         console.log("app root : " + app.settings.appRoot );
