@@ -13,6 +13,11 @@ html
         header.navbar.navbar-fixed-top: nav.navbar-inner: .container
             a.brand(href='/') youtube-hoover
 
+            form(action='setKey').navbar-form.pull-left
+                .input-append
+                    input(type='text',name='id',placeholder='set api key').span2
+                    button(type='submit').btn Set key
+
             ul.nav.pull-right
                 li: a(href="/") Home
 

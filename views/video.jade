@@ -1,0 +1,11 @@
+extends layout
+
+block content
+
+    - if(typeof results !== 'undefined')
+        .alert Video found
+        pre #{JSON.stringify(results)}
+
+        #{results.items[0].player.embedHtml}
+    - else
+        .alert Video not found

@@ -3,14 +3,21 @@ extends layout
 block content
 
     form(action='/search').form-inline
-        input(type='text',name='key',value='#{query.key ? query.key : ''}',placeholder='app key').span2
         .input-append
             input(type='search',name='q',value='#{query.q ? query.q : ''}',placeholder='search query').span3
             button(type='submit').btn Search
 
-    - if(typeof results !== 'undefined')
+    - if(typeof results !== 'undefined' && results.error == null)
         hr
         ul.thumbnails
             - each item in results.items
-                li.span3
-                    a(href='/show?id=#{item.id.videoId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+                case item.id.kind
+                    when 'youtube#video'
+                        li.span3: a(href='/video/#{item.id.videoId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+                    when 'youtube#channel'
+                        li.span3: a(href='/channel/#{item.id.channelId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+                    when 'youtube#playlist'
+                        li.span3: a(href='/playlist/#{item.id.playlistId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+    - else if(typeof results !== 'undefined')
+        pre #{JSON.stringify(results)}
+
