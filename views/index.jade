@@ -3,10 +3,14 @@ extends layout
 block content
 
     form(action='/search').form-inline
+        input(type='text',name='key',value='#{query.key ? query.key : ''}',placeholder='app key').span2
         .input-append
-            input(type='search',name='q',value='#{query.q ? query.q : ''}').span3
+            input(type='search',name='q',value='#{query.q ? query.q : ''}',placeholder='search query').span3
             button(type='submit').btn Search
 
     - if(typeof results !== 'undefined')
         hr
-        pre #{JSON.stringify(results)}
+        ul.thumbnails
+            - each item in results.items
+                li.span3
+                    a(href='/show?id=#{item.id.videoId}'): img(src='#{item.snippet.thumbnails.medium.url}')

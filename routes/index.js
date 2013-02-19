@@ -47,8 +47,8 @@
 
 			}
 
-			if(req.query.q){
-				youtube.search(req.query.q, show);
+			if(req.query.q && req.query.key){
+				youtube.search(req.query.q, req.query.key, show);
 			} else {
 				show(data.results)
 			}
