@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+    - if(typeof results !== 'undefined')
+        .alert Playlist found
+
+        ul.thumbnails
+            - each item in results.items
+                li.span3: a(href='/video/#{item.snippet.resourceId.videoId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+
+        pre #{JSON.stringify(results)}
+    - else
+        .alert Playlist not found

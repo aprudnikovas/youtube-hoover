@@ -100,6 +100,60 @@
 
 		});
 
+		app.get('/channel/:id', function (req, res) {
+
+			var data = {
+				title : 'Youtube hoover'
+				, query : req.query
+				, results : {}
+			};
+
+			function show(response){
+
+				data.results = response;
+
+				return res.format({
+					html: function(){
+						res.render('channel', data);
+					},
+					json: function(){
+						res.send(data);
+					}
+				});
+
+			}
+
+			youtube.findChannel(app.get('youtubeKey'),req.params.id,show);
+
+		});
+
+		app.get('/playlist/:id', function (req, res) {
+
+			var data = {
+				title : 'Youtube hoover'
+				, query : req.query
+				, results : {}
+			};
+
+			function show(response){
+
+				data.results = response;
+
+				return res.format({
+					html: function(){
+						res.render('playlist', data);
+					},
+					json: function(){
+						res.send(data);
+					}
+				});
+
+			}
+
+			youtube.findPlaylistItems(app.get('youtubeKey'),req.params.id,show);
+
+		});
+
     };
 
 }(exports));

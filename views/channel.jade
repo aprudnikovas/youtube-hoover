@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+    - if(typeof results !== 'undefined')
+        .alert Channel found
+
+        img(src='#{results.items[0].snippet.thumbnails.default.url}')
+
+        dl.dl-horizontal
+            dt Title
+            dd #{results.items[0].snippet.title}
+            dt Description
+            dd #{results.items[0].snippet.description}
+            dt Published
+            dd #{results.items[0].snippet.publishedAt}
+            dt Playlists
+            dd
+                - each value, key in results.items[0].contentDetails.relatedPlaylists
+                    a(href='/playlist/#{value}').btn #{key}
+
+            dt View count
+            dd #{results.items[0].statistics.viewCount}
+            dt Comment count
+            dd #{results.items[0].statistics.commentCount}
+            dt Subscriber count
+            dd #{results.items[0].statistics.subscriberCount}
+            dt Video count
+            dd #{results.items[0].statistics.videoCount}
+
+        pre #{JSON.stringify(results)}
+    - else
+        .alert Channel not found

@@ -2,10 +2,9 @@ extends layout
 
 block content
 
-    - if(typeof results !== 'undefined')
+    - if(typeof results !== 'undefined' && results.items)
         .alert Video found
+        .video!= results.items[0].player.embedHtml + '</iframe>'
         pre #{JSON.stringify(results)}
-
-        #{results.items[0].player.embedHtml}
     - else
         .alert Video not found

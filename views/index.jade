@@ -18,6 +18,7 @@ block content
                         li.span3: a(href='/channel/#{item.id.channelId}'): img(src='#{item.snippet.thumbnails.medium.url}')
                     when 'youtube#playlist'
                         li.span3: a(href='/playlist/#{item.id.playlistId}'): img(src='#{item.snippet.thumbnails.medium.url}')
+        pre #{JSON.stringify(results)}
     - else if(typeof results !== 'undefined')
         pre #{JSON.stringify(results)}
 
